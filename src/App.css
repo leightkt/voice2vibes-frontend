@@ -1,0 +1,55 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header button {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 5rem;
+}
+
+.dictaphone {
+    margin: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.dictaphone p {
+    width: 24rem;
+    border-bottom: 1px solid gray;
+}
+
+.dictaphone button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 3rem;
+    margin: 1rem;
+}
+
+.directives {
+    margin: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.directives-card {
+    background-color: rgb(215, 245, 245);
+    margin: 2rem;
+    padding: 2rem;
+    width: 10rem;
+    box-shadow: 2px 2px 5px rgb(241, 238, 238);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4rem;
+}
+
+.directives button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 3rem;
+    margin: 4rem 1rem 1rem 1rem;
+}

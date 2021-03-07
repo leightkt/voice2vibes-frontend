@@ -1,7 +1,7 @@
 import offIcon from '../Assets/Icons/off.png'
 import onIcon from '../Assets/Icons/on.png'
 
-function DirectivesCard({ directive }) {
+function DirectivesCard({ directive, setDirective, transcript }) {
 
     const findIcon = () => {
         switch(directive.name) {
@@ -13,11 +13,23 @@ function DirectivesCard({ directive }) {
                 return null
         }
     }
+
+    const handleClick = () => {
+        if (setDirective) {
+            setDirective(directive)
+        } else {
+            return null
+        }
+    }
+
     return(
-        <div>
+        <div className="directives-card" onClick={ handleClick }>
             <img src={ findIcon() } alt={ directive.name }/>
             <p>{ directive.name }</p>
-            <p>"{ directive.command }"</p>
+            <p>{transcript
+            ? `"${transcript}"`
+            : `"${directive.command}"` }
+            </p>
         </div>
     )
 }

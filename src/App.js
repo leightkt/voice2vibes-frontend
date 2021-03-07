@@ -7,12 +7,15 @@ import Directives from './Containers/Directives';
 class App extends Component {
 
     state = {
+        isUpdating: false,
+        transcript: "",
         device: "",
         characteristic: "",
         server: "",
         service: "",
         directives: [
             {
+                id: 1,
                 name: "on",
                 command: "on",
                 hexCode: [0x0F, 0x03, 0x00, 0x07, 0x07, 0x03, 0x00, 0x00],
@@ -21,6 +24,7 @@ class App extends Component {
                     )
             },
             {
+                id: 2,
                 name: "off",
                 command: "off",
                 hexCode: [0x1E, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
@@ -46,6 +50,10 @@ class App extends Component {
     setService = (service) => {
         this.setState({ service })
     }
+
+    setTranscript = (transcript) => {
+        this.setState({ transcript })
+    }
     
     turnOn = () => {
         this.state.characteristic.writeValue(
@@ -57,6 +65,21 @@ class App extends Component {
         this.state.characteristic.writeValue(
             new Uint8Array([0x1E, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])
             )
+    }
+
+    toggleUpdate = () => {
+        this.setState({
+            isUpdating: !this.state.isUpdating
+        })
+    }
+
+    updateDirectives = (updatedDirective) => {
+        const updatedDirectives = this.state.directives.filter(directive => {
+            return directive.id !== updatedDirective.id
+        })
+        this.setState({
+            directives: [...updatedDirectives, updatedDirective]
+        })
     }
 
     render() {
@@ -76,8 +99,18 @@ class App extends Component {
                     <button onClick={ this.turnOff }>OFF</button>
                 </header>
                 <main>
-                    <Dictaphone commands={ this.state.commands }/>
-                    <Directives directives={ this.state.directives }/>
+                    <Dictaphone 
+                        isUpdating={ this.state.isUpdating }
+                        commands={ this.state.directives }
+                        setTranscript={ this.setTranscript }
+                    />
+                    <Directives 
+                        transcript={ this.state.transcript }
+                        directives={ this.state.directives }
+                        updateDirectives={ this.updateDirectives }
+                        isUpdating={ this.state.isUpdating }
+                        toggleUpdate={ this.toggleUpdate }
+                    />
                 </main>
             </div>
         )
