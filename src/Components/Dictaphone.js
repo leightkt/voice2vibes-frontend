@@ -1,17 +1,9 @@
 import { useEffect } from 'react'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
-function Dictaphone({ commands, setTranscript, isUpdating }) {
-    
-    const checkStatus = () => {
-        if (!isUpdating) {
-            return { commands }
-        } else {
-            return {}
-        }
-    }
+function Dictaphone({ commands, setTranscript, stateTranscript }) {
 
-    const { transcript, resetTranscript } =  useSpeechRecognition(checkStatus())
+    const { transcript, resetTranscript } =  useSpeechRecognition({ commands })
 
 
 
@@ -25,7 +17,7 @@ function Dictaphone({ commands, setTranscript, isUpdating }) {
 
     return (
         <div className="dictaphone">
-            <p>{transcript}</p>
+            <p>{ stateTranscript }</p>
             <button onClick={SpeechRecognition.startListening}>Start</button>
             <button onClick={resetTranscript}>Reset</button>
         </div>

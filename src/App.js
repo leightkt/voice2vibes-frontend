@@ -74,12 +74,23 @@ class App extends Component {
     }
 
     updateDirectives = (updatedDirective) => {
+        this.setState({
+            transcript: ""
+        })
         const updatedDirectives = this.state.directives.filter(directive => {
             return directive.id !== updatedDirective.id
         })
         this.setState({
             directives: [...updatedDirectives, updatedDirective]
         })
+    }
+
+    checkStatus = () => {
+        if (!this.state.isUpdating) {
+            return this.state.directives
+        } else {
+            return {}
+        }
     }
 
     render() {
@@ -100,9 +111,9 @@ class App extends Component {
                 </header>
                 <main>
                     <Dictaphone 
-                        isUpdating={ this.state.isUpdating }
-                        commands={ this.state.directives }
+                        commands={ this.checkStatus() }
                         setTranscript={ this.setTranscript }
+                        stateTranscript={ this.state.transcript }
                     />
                     <Directives 
                         transcript={ this.state.transcript }
