@@ -1,5 +1,6 @@
 html {
     margin: 0;
+    padding: 0;
 }
 
 .App {
@@ -7,13 +8,17 @@ html {
     padding: 0;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 header {
-    width: 100%;
     border-bottom: 1px solid turquoise;
-    padding: 2rem;
+    padding: 2rem 4rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -22,6 +27,11 @@ header button {
     height: 5rem;
     border-radius: 5rem;
     margin: 0rem 1rem;
+}
+
+header img {
+    width: 15rem;
+    border-radius: 10rem;
 }
 
 .dictaphone {
@@ -74,25 +84,29 @@ header button {
 }
 
 footer {
-    padding: 1rem;
+    padding: 1rem 1rem;
     background-color: turquoise;
-    width: 100%;
-    height: 4rem;
+    height: 6rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
-footer img {
+.github {
     width: 4rem;
     border-radius: 4rem;
+}
+
+.honey {
+    width: 10rem;
+    border-radius: 2rem;
 }
 
 footer .about {
     display: flex;
     flex-direction: row;
-    width: 35rem;
+    width: 40rem;
     justify-content: space-around;
 }
 
@@ -106,5 +120,5 @@ footer h2 {
 }
 
 main {
-    min-height: 25rem;
+    min-height: 40rem;
 }

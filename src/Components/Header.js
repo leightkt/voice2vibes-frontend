@@ -1,4 +1,5 @@
 import Bluetooth from './Bluetooth'
+import Grapefruit from '../Assets/grapefruit.jpeg'
 
 function Header({ device, characteristic, setDevice, setCharacteristic, setServer, setService }) {
 
@@ -16,6 +17,7 @@ function Header({ device, characteristic, setDevice, setCharacteristic, setServe
 
     return(
         <header className="App-header">
+            <img src={Grapefruit} alt="grapefruit" />
             <h1>Voice2Vibes</h1>
             {device
             ?   <> 
