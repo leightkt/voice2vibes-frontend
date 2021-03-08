@@ -3,6 +3,7 @@ import { Component } from 'react'
 import Dictaphone from './Components/Dictaphone';
 import Directives from './Containers/Directives';
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 class App extends Component {
 
@@ -214,26 +215,27 @@ class App extends Component {
                     setServer={ this.setServer }
                     setService={ this.setService }
                 />
-                {this.state.device
-                    ?   <>
-                            <main>
-                            <Dictaphone 
-                                commands={ this.checkStatus() }
-                                setTranscript={ this.setTranscript }
-                                stateTranscript={ this.state.transcript }
-                            />
-                            <Directives 
-                                transcript={ this.state.transcript }
-                                directives={ this.state.directives }
-                                updateDirectives={ this.updateDirectives }
-                                isUpdating={ this.state.isUpdating }
-                                toggleUpdate={ this.toggleUpdate }
-                            />
-                            </main>
-                        </>
-                : null
-                }
-                
+                <main>
+                    {this.state.device
+                        ?   <>
+                                
+                                <Dictaphone 
+                                    commands={ this.checkStatus() }
+                                    setTranscript={ this.setTranscript }
+                                    stateTranscript={ this.state.transcript }
+                                />
+                                <Directives 
+                                    transcript={ this.state.transcript }
+                                    directives={ this.state.directives }
+                                    updateDirectives={ this.updateDirectives }
+                                    isUpdating={ this.state.isUpdating }
+                                    toggleUpdate={ this.toggleUpdate }
+                                />
+                            </>
+                    : null
+                    }
+                </main>
+                <Footer />
             </div>
         )
     }
