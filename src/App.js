@@ -1,8 +1,8 @@
 import './App.css';
 import { Component } from 'react'
-import Bluetooth from './Components/Bluetooth'
 import Dictaphone from './Components/Dictaphone';
 import Directives from './Containers/Directives';
+import Header from './Components/Header';
 
 class App extends Component {
 
@@ -18,7 +18,7 @@ class App extends Component {
                 id: 1,
                 name: "on",
                 command: "on",
-                hexCode: [0x0F, 0x03, 0x00, 0x07, 0x07, 0x03, 0x00, 0x00],
+                hexCode: [0x0F, 0x03, 0x00, 0x02, 0x02, 0x03, 0x00, 0x00],
                 callback: () => this.state.characteristic.writeValue(
                     new Uint8Array([0x0F, 0x03, 0x00, 0x07, 0x07, 0x03, 0x00, 0x00])
                     )
@@ -31,9 +31,130 @@ class App extends Component {
                 callback: () => this.state.characteristic.writeValue(
                     new Uint8Array([0x1E, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])
                     )
+            },
+            {
+                id: 3,
+                name: "vibrate",
+                command: "vibrate",
+                hexCode: [0x0F, 0x03, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0x03, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 4,
+                name: "pulse",
+                command: "pulse",
+                hexCode: [0x0F, 0x05, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0x05, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 5,
+                name: "wave",
+                command: "wave",
+                hexCode: [0x0F, 0x07, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0x07, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 6,
+                name: "cha cha",
+                command: "cha cha",
+                hexCode: [0x0F, 0x09, 0x00, 0x04, 0x04, 0x00, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0x09, 0x00, 0x04, 0x04, 0x00, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 7,
+                name: "tease",
+                command: "tease",
+                hexCode: [0x0F, 0x11, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0x11, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 8,
+                name: "tempo",
+                command: "tempo",
+                hexCode: [0x0F, 0x16, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0x16, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 9,
+                name: "step",
+                command: "step",
+                hexCode: [0x0F, 0x09, 0x00, 0x04, 0x04, 0x00, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0x09, 0x00, 0x04, 0x04, 0x00, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 10,
+                name: "massage",
+                command: "massage",
+                hexCode: [0x0F, 0x10, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0x10, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 11,
+                name: "ramp",
+                command: "ramp",
+                hexCode: [0x0F, 0x15, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0x15, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 12,
+                name: "low",
+                command: "low",
+                hexCode: [0x0F, 0xFF, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0xFF, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 13,
+                name: "medium",
+                command: "medium",
+                hexCode: [0x0F, 0xFF, 0x00, 0x0A, 0x0A, 0x03, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0xFF, 0x00, 0x0A, 0x0A, 0x03, 0x00, 0x00])
+                    )
+            },
+            {
+                id: 14,
+                name: "high",
+                command: "max",
+                hexCode: [0x0F, 0xFF, 0x00, 0x0E, 0x0E, 0x03, 0x00, 0x00],
+                callback: () => this.state.characteristic.writeValue(
+                    new Uint8Array([0x0F, 0xFF, 0x00, 0x0E, 0x0E, 0x03, 0x00, 0x00])
+                    )
             }
         ]
     }
+
+    // componentDidMount() {
+    //     const directivesWithCallback = this.state.directives.map((directive) => {
+    //         directive.callback = () => this.state.characteristic.writeValue(
+    //             new Uint8Array(directive.hex)
+    //             )
+    //         return directive
+    //     })
+    //     this.setState({
+    //         directives: directivesWithCallback
+    //     })
+    //     console.log(this.state.directives)
+    // }
 
     setDevice = (device) => {
         this.setState({ device })
@@ -55,17 +176,6 @@ class App extends Component {
         this.setState({ transcript })
     }
     
-    turnOn = () => {
-        this.state.characteristic.writeValue(
-            new Uint8Array([0x0F, 0x03, 0x00, 0x07, 0x07, 0x03, 0x00, 0x00])
-            )
-    }
-
-    turnOff = () => {
-        this.state.characteristic.writeValue(
-            new Uint8Array([0x1E, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])
-            )
-    }
 
     toggleUpdate = () => {
         this.setState({
@@ -96,33 +206,34 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <h1>Voice2Vibes</h1>
-                    {this.state.device
-                    ? <p>Connected</p>
-                    : <p>Not Connected</p>}
-                    <Bluetooth 
-                        setDevice={ this.setDevice }
-                        setCharacteristic={ this.setCharacteristic }
-                        setServer={ this.setServer }
-                        setService={ this.setService }/>
-                    <button onClick={ this.turnOn }>ON</button>
-                    <button onClick={ this.turnOff }>OFF</button>
-                </header>
-                <main>
-                    <Dictaphone 
-                        commands={ this.checkStatus() }
-                        setTranscript={ this.setTranscript }
-                        stateTranscript={ this.state.transcript }
-                    />
-                    <Directives 
-                        transcript={ this.state.transcript }
-                        directives={ this.state.directives }
-                        updateDirectives={ this.updateDirectives }
-                        isUpdating={ this.state.isUpdating }
-                        toggleUpdate={ this.toggleUpdate }
-                    />
-                </main>
+                <Header 
+                    device={ this.state.device }
+                    characteristic={ this.state.characteristic }
+                    setDevice={ this.setDevice }
+                    setCharacteristic={ this.setCharacteristic }
+                    setServer={ this.setServer }
+                    setService={ this.setService }
+                />
+                {this.state.device
+                    ?   <>
+                            <main>
+                            <Dictaphone 
+                                commands={ this.checkStatus() }
+                                setTranscript={ this.setTranscript }
+                                stateTranscript={ this.state.transcript }
+                            />
+                            <Directives 
+                                transcript={ this.state.transcript }
+                                directives={ this.state.directives }
+                                updateDirectives={ this.updateDirectives }
+                                isUpdating={ this.state.isUpdating }
+                                toggleUpdate={ this.toggleUpdate }
+                            />
+                            </main>
+                        </>
+                : null
+                }
+                
             </div>
         )
     }
