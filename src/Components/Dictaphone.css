@@ -1,0 +1,24 @@
+.dictaphone {
+    margin: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.dictaphone p {
+    width: 24rem;
+    border-bottom: 1px solid #efaf27;
+}
+
+.dictaphone button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 3rem;
+    margin: 1rem;
+    border: 1px solid #efaf27;
+    background-color: white;
+    /* box-shadow: 1px 1px 5px turquoise; */
+    color: #000808;
+    cursor: pointer;
+    font-family: 'Montserrat Alternates', sans-serif;
+}

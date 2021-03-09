@@ -1,0 +1,39 @@
+header {
+    box-shadow: 0 4px 4px -4px turquoise;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header button {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 5rem;
+    margin: 0rem 1rem;
+    border: none;
+    background-color: turquoise;
+    box-shadow: 1px 1px 5px turquoise;
+    color: #000808;
+    cursor: pointer;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+header img {
+    width: 15rem;
+    border-radius: 10rem;
+}
+
+h1 {
+    color: turquoise;
+    font-size: 3rem;
+}
+
+.username {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+}
+

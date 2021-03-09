@@ -1,3 +1,4 @@
+import './Directives.css'
 import DirectivesCard from "../Components/DirectivesCard"
 import { useState } from 'react'
 

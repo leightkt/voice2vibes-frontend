@@ -1,3 +1,4 @@
+import './DirectivesCard.css'
 import offIcon from '../Assets/Icons/off.png'
 import onIcon from '../Assets/Icons/on.png'
 import vibrateIcon from '../Assets/Icons/vibrate.png'
@@ -62,9 +63,10 @@ function DirectivesCard({ directive, setDirective, transcript }) {
         <div className="directives-card" onClick={ handleClick }>
             <img src={ findIcon() } alt={ directive.name }/>
             <p>{ directive.name }</p>
-            <p>{transcript
-            ? `"${transcript}"`
-            : `"${directive.command}"` }
+            <p>{ transcript
+            ? `"${ transcript }"`
+            : `"${ directive.command }"` 
+            }
             </p>
         </div>
     )

@@ -1,0 +1,19 @@
+.directives-card {
+    background-color: rgba(64, 224, 208, 0.178);
+    margin: 1rem;
+    padding: 2rem;
+    width: 10rem;
+    box-shadow: 2px 2px 5px rgb(241, 238, 238);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4rem;
+}
+
+.directives-card p {
+    text-align: center;
+}
+
+.directives-card img {
+    width: 2rem;
+}

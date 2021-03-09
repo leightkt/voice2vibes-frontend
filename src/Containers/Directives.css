@@ -1,0 +1,13 @@
+.directives {
+    margin: 2rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.directives button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 3rem;
+    margin: 4rem 1rem 1rem 1rem;
+}

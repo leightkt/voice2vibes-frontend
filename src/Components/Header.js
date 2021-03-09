@@ -1,3 +1,4 @@
+import './Header.css'
 import Bluetooth from './Bluetooth'
 import Grapefruit from '../Assets/grapefruit.jpeg'
 import LoginForm from './LoginForm'
@@ -26,16 +27,13 @@ function Header({
             )
     }
 
-    // const renderConnectTool = () => {
-    //     if(DirectivesCard)
-    // }
-
     return(
         <header className="App-header">
             <img src={Grapefruit} alt="grapefruit" />
             <h1>Voice2Vibes</h1>
             { user
             ? <>
+                <p className="username">Welcome { user.username }</p>
                 {
                 device
                 ?   <> 

@@ -1,3 +1,4 @@
+import './Dictaphone.css'
 import { useEffect, useState } from 'react'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 

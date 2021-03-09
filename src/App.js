@@ -175,7 +175,8 @@ class App extends Component {
     }
 
     setTranscript = (transcript) => {
-        this.setState({ transcript })
+        let uncensoredtranscript = this.uncensor(transcript)
+        this.setState({ transcript: uncensoredtranscript })
     }
 
     setUser = (user) => {
@@ -254,6 +255,23 @@ class App extends Component {
         }
     }
 
+    uncensor = (transcript) =>  {
+        let uncensored = transcript
+        uncensored = uncensored.replace(/cont/g, 'cunt')
+        uncensored = uncensored.replace(/(p\*\*\*\*)/g, 'pussy')
+        uncensored = uncensored.replace(/(s\*\*\*)/g, 'shit')
+        uncensored = uncensored.replace(/(f\*\*\*)/g, 'fuck')
+        uncensored = uncensored.replace(/(fuck\*\*\*)/g, 'fucking')
+        uncensored = uncensored.replace(/(fuckr)/g, 'fucker')
+        uncensored = uncensored.replace(/(b\*\*\*\*)/g, 'bitch')
+        uncensored = uncensored.replace(/(a\*\*\*\*\*\*)/g, 'asshole')
+        return uncensored
+    }
+
+    logOut = () => {
+        this.setState({ user: null })
+    }
+
     render() {
         return (
             <div className="App">
@@ -285,7 +303,10 @@ class App extends Component {
                                     toggleUpdate={ this.toggleUpdate }
                                     saveNewDirective={ this.saveNewDirective }
                                 />
-                                <button className="logout">LOG OUT</button> 
+                                <button 
+                                    className="logout" 
+                                    onClick={ this.logOut }
+                                >LOG OUT</button> 
                             </>
                     : null
                     }
