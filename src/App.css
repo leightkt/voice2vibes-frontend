@@ -34,6 +34,15 @@ header img {
     border-radius: 10rem;
 }
 
+label {
+    display: none;
+}
+
+main {
+    min-height: 40rem;
+    position: relative;
+}
+
 .dictaphone {
     margin: 4rem;
     display: flex;
@@ -83,6 +92,17 @@ header img {
     margin: 4rem 1rem 1rem 1rem;
 }
 
+.logout {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 3rem;
+    margin: 4rem 1rem 1rem 1rem;
+}
+
 footer {
     padding: 1rem 1rem;
     background-color: turquoise;
@@ -119,6 +139,3 @@ footer h2 {
     margin-right: 1rem;
 }
 
-main {
-    min-height: 40rem;
-}

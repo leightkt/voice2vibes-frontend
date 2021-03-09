@@ -4,10 +4,12 @@ import Dictaphone from './Components/Dictaphone';
 import Directives from './Containers/Directives';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+const BackendURL = 'http://localhost:9000/'
 
 class App extends Component {
 
     state = {
+        user: null,
         isUpdating: false,
         transcript: "",
         device: "",
@@ -17,6 +19,7 @@ class App extends Component {
         directives: [
             {
                 id: 1,
+                usercommand_id: null,
                 name: "on",
                 command: "on",
                 hexCode: [0x0F, 0x03, 0x00, 0x02, 0x02, 0x03, 0x00, 0x00],
@@ -26,6 +29,7 @@ class App extends Component {
             },
             {
                 id: 2,
+                usercommand_id: null,
                 name: "off",
                 command: "off",
                 hexCode: [0x1E, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
@@ -35,6 +39,7 @@ class App extends Component {
             },
             {
                 id: 3,
+                usercommand_id: null,
                 name: "vibrate",
                 command: "vibrate",
                 hexCode: [0x0F, 0x03, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
@@ -44,6 +49,7 @@ class App extends Component {
             },
             {
                 id: 4,
+                usercommand_id: null,
                 name: "pulse",
                 command: "pulse",
                 hexCode: [0x0F, 0x05, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
@@ -62,6 +68,7 @@ class App extends Component {
             },
             {
                 id: 6,
+                usercommand_id: null,
                 name: "cha cha",
                 command: "cha cha",
                 hexCode: [0x0F, 0x09, 0x00, 0x04, 0x04, 0x00, 0x00, 0x00],
@@ -71,6 +78,7 @@ class App extends Component {
             },
             {
                 id: 7,
+                usercommand_id: null,
                 name: "tease",
                 command: "tease",
                 hexCode: [0x0F, 0x11, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
@@ -80,6 +88,7 @@ class App extends Component {
             },
             {
                 id: 8,
+                usercommand_id: null,
                 name: "tempo",
                 command: "tempo",
                 hexCode: [0x0F, 0x16, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
@@ -89,6 +98,7 @@ class App extends Component {
             },
             {
                 id: 9,
+                usercommand_id: null,
                 name: "step",
                 command: "step",
                 hexCode: [0x0F, 0x09, 0x00, 0x05, 0x05, 0x00, 0x00, 0x00],
@@ -98,6 +108,7 @@ class App extends Component {
             },
             {
                 id: 10,
+                usercommand_id: null,
                 name: "massage",
                 command: "massage",
                 hexCode: [0x0F, 0x10, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
@@ -107,6 +118,7 @@ class App extends Component {
             },
             {
                 id: 11,
+                usercommand_id: null,
                 name: "ramp",
                 command: "ramp",
                 hexCode: [0x0F, 0x15, 0x00, 0x04, 0x04, 0x03, 0x00, 0x00],
@@ -125,6 +137,7 @@ class App extends Component {
             },
             {
                 id: 13,
+                usercommand_id: null,
                 name: "medium",
                 command: "medium",
                 hexCode: [0x0F, 0xFF, 0x00, 0x0A, 0x0A, 0x03, 0x00, 0x00],
@@ -134,6 +147,7 @@ class App extends Component {
             },
             {
                 id: 14,
+                usercommand_id: null,
                 name: "high",
                 command: "max",
                 hexCode: [0x0F, 0xFF, 0x00, 0x0E, 0x0E, 0x03, 0x00, 0x00],
@@ -143,9 +157,6 @@ class App extends Component {
             }
         ]
     }
-
-    // componentDidMount() {
-    // }
 
     setDevice = (device) => {
         this.setState({ device })
@@ -166,7 +177,39 @@ class App extends Component {
     setTranscript = (transcript) => {
         this.setState({ transcript })
     }
-    
+
+    setUser = (user) => {
+        this.setState({ 
+            user: {
+                id: user.id,
+                username: user.username
+            } 
+        })
+    }
+
+    setDirectives = (usercommands) => {
+        const newdirectives = []
+        usercommands.forEach(usercommand => {
+            this.state.directives.forEach(directive => {
+                if(usercommand.command_id === directive.id){
+                    const newcommand = {
+                        id: directive.id,
+                        usercommand_id: usercommand.id,
+                        name: directive.name,
+                        command: directive.command,
+                        hexCode: directive.hexCode,
+                        callback: directive.callback
+                    }
+                    if(usercommand.phrase !== ""){
+                        newcommand.command = usercommand.phrase
+                    }
+                    newdirectives.push(newcommand)
+                }
+            })
+        })
+
+        this.setState({ directives: newdirectives })
+    }
 
     toggleUpdate = () => {
         this.setState({
@@ -184,6 +227,23 @@ class App extends Component {
         this.setState({
             directives: [...updatedDirectives, updatedDirective]
         })
+    }
+
+    saveNewDirective = (directive) => {
+        fetch(`${BackendURL}usercommands/${directive.usercommand_id}`, {
+            method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    phrase: directive.command
+                })
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+            })
     }
 
     checkStatus = () => {
@@ -204,6 +264,9 @@ class App extends Component {
                     setCharacteristic={ this.setCharacteristic }
                     setServer={ this.setServer }
                     setService={ this.setService }
+                    setUser={ this.setUser }
+                    user={ this.state.user }
+                    setDirectives={ this.setDirectives }
                 />
                 <main>
                     {this.state.device
@@ -220,7 +283,9 @@ class App extends Component {
                                     updateDirectives={ this.updateDirectives }
                                     isUpdating={ this.state.isUpdating }
                                     toggleUpdate={ this.toggleUpdate }
+                                    saveNewDirective={ this.saveNewDirective }
                                 />
+                                <button className="logout">LOG OUT</button> 
                             </>
                     : null
                     }

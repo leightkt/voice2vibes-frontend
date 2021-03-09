@@ -1,7 +1,7 @@
 import DirectivesCard from "../Components/DirectivesCard"
 import { useState } from 'react'
 
-function Directives({ directives, transcript, updateDirectives, isUpdating, toggleUpdate }) {
+function Directives({ directives, transcript, updateDirectives, isUpdating, toggleUpdate, saveNewDirective }) {
     const [directive, setDirective] = useState({})
 
     const displayDirectiveCards = () => {
@@ -21,6 +21,7 @@ function Directives({ directives, transcript, updateDirectives, isUpdating, togg
         setDirective(directive.command = transcript)
         toggleUpdate()
         updateDirectives(directive)
+        saveNewDirective(directive)
     }
 
     return(

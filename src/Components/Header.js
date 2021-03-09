@@ -1,7 +1,18 @@
 import Bluetooth from './Bluetooth'
 import Grapefruit from '../Assets/grapefruit.jpeg'
+import LoginForm from './LoginForm'
 
-function Header({ device, characteristic, setDevice, setCharacteristic, setServer, setService }) {
+function Header({ 
+    device, 
+    characteristic, 
+    setDevice, 
+    setCharacteristic, 
+    setServer, 
+    setService, 
+    setUser, 
+    user, 
+    setDirectives 
+    }) {
 
     const turnOn = () => {
         characteristic.writeValue(
@@ -15,27 +26,37 @@ function Header({ device, characteristic, setDevice, setCharacteristic, setServe
             )
     }
 
+    // const renderConnectTool = () => {
+    //     if(DirectivesCard)
+    // }
+
     return(
         <header className="App-header">
             <img src={Grapefruit} alt="grapefruit" />
             <h1>Voice2Vibes</h1>
-            {device
-            ?   <> 
-                    <p>Connected</p>
-                    <div>
-                        <button onClick={ turnOn }>ON</button>
-                        <button onClick={ turnOff }>OFF</button>
-                    </div>
+            { user
+            ? <>
+                {
+                device
+                ?   <> 
+                        <p>Connected</p>
+                        <div>
+                            <button onClick={ turnOn }>ON</button>
+                            <button onClick={ turnOff }>OFF</button>
+                        </div>
+                    </>
+                : <>
+                        <p>Not Connected</p>
+                        <Bluetooth 
+                        setDevice={ setDevice }
+                        setCharacteristic={ setCharacteristic }
+                        setServer={ setServer }
+                        setService={ setService }
+                        />
+                    </>
+                }
                 </>
-            : <>
-                <p>Not Connected</p>
-                <Bluetooth 
-                setDevice={ setDevice }
-                setCharacteristic={ setCharacteristic }
-                setServer={ setServer }
-                setService={ setService }
-                />
-            </>
+            : <LoginForm setUser={ setUser } setDirectives={ setDirectives }/>
             }
             
         </header>

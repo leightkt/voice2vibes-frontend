@@ -1,29 +1,32 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 function Dictaphone({ commands, setTranscript, stateTranscript }) {
     const { transcript, resetTranscript } =  useSpeechRecognition({ commands })
-    let interval = null
-
+    const [continuousListen, setContinousListen ] = useState(false)
 
     useEffect(() => {
         setTranscript(transcript)
     }, [transcript])
 
-    
+    useEffect(() => {
+        if (continuousListen === true){
+            const interval = setInterval(() => {
+                resetTranscript()
+            }, 20000)
+            return () => clearInterval(interval)
+        }
+    }, [continuousListen])
 
     const StartContinousListening = () => {
+        setContinousListen(true)
         SpeechRecognition.startListening( {continuous: true })
-        useEffect(() => {
-            interval = setInterval(() => {
-                resetTranscript()
-            }, 100000)
-        }, [])
+
     }
 
     const stopListening = () => {
+        setContinousListen(false)
         SpeechRecognition.stopListening()
-        clearInterval(interval)
     }
 
     if(!SpeechRecognition.browserSupportsSpeechRecognition()) {
