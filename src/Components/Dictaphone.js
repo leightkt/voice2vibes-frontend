@@ -11,6 +11,14 @@ function Dictaphone({ commands, setTranscript, stateTranscript }) {
         setTranscript(transcript)
     }, [transcript])
 
+    const stopListening = () => {
+        SpeechRecognition.stopListening()
+    }
+
+    const startContinousListening = () => {
+        SpeechRecognition.startListening( {continuous: true })
+    }
+
     if(!SpeechRecognition.browserSupportsSpeechRecognition()) {
         return null
     }
@@ -20,6 +28,8 @@ function Dictaphone({ commands, setTranscript, stateTranscript }) {
             <p>{ stateTranscript }</p>
             <button onClick={SpeechRecognition.startListening}>Start</button>
             <button onClick={resetTranscript}>Reset</button>
+            <button onClick={startContinousListening}>LISTEN MODE</button>
+            <button onClick={stopListening}>STOP</button>
         </div>
     )
 }

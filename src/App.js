@@ -91,9 +91,9 @@ class App extends Component {
                 id: 9,
                 name: "step",
                 command: "step",
-                hexCode: [0x0F, 0x09, 0x00, 0x04, 0x04, 0x00, 0x00, 0x00],
+                hexCode: [0x0F, 0x09, 0x00, 0x05, 0x05, 0x00, 0x00, 0x00],
                 callback: () => this.state.characteristic.writeValue(
-                    new Uint8Array([0x0F, 0x09, 0x00, 0x04, 0x04, 0x00, 0x00, 0x00])
+                    new Uint8Array([0x0F, 0x09, 0x00, 0x05, 0x05, 0x00, 0x00, 0x00])
                     )
             },
             {
@@ -145,16 +145,6 @@ class App extends Component {
     }
 
     // componentDidMount() {
-    //     const directivesWithCallback = this.state.directives.map((directive) => {
-    //         directive.callback = () => this.state.characteristic.writeValue(
-    //             new Uint8Array(directive.hex)
-    //             )
-    //         return directive
-    //     })
-    //     this.setState({
-    //         directives: directivesWithCallback
-    //     })
-    //     console.log(this.state.directives)
     // }
 
     setDevice = (device) => {
