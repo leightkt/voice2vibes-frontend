@@ -39,9 +39,10 @@ class LoginForm extends Component {
             })
             .then(response => response.json())
             .then(result => {
-                if(result.error){
-                    this.setState({ error: result.error })
+                if(result.errors){
+                    this.setState({ error: result.errors })
                 } else {
+                    localStorage.setItem('token', result.user.token)
                     this.props.setUser(result.user)
                     this.props.setDirectives(result.user.usercommands)
                     this.setState({
@@ -68,6 +69,7 @@ class LoginForm extends Component {
                 if(result.errors){
                     this.setState({ error: result.errors })
                 } else {
+                    localStorage.setItem('token', result.user.token)
                     this.props.setUser(result.user)
                     this.props.setDirectives(result.user.usercommands)
                     this.setState({
@@ -97,7 +99,9 @@ class LoginForm extends Component {
                     type="password" 
                     name="password" 
                     id ="password" 
-                    placeholder="PASSWORD" 
+                    placeholder="PASSWORD"
+                    // minlength="6" 
+                    // maxLength="12"
                     value={ this.state.password }
                     onChange={ this.handleChange }/>
                 {this.state.error ? <p>{this.state.error}</p> : null}

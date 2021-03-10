@@ -158,6 +158,26 @@ class App extends Component {
         ]
     }
 
+    componentDidMount() {
+        this.authorize_user()
+    }
+
+    authorize_user = () => {
+        fetch(`${BackendURL}profile`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${localStorage.token}`
+            }
+        })
+        .then(response => response.json())
+        .then(user => {
+            if(user.id){
+                this.setUser(user)
+                this.setDirectives(user.usercommands)
+            }
+        })
+    }
+
     setDevice = (device) => {
         this.setState({ device })
     }
@@ -183,7 +203,7 @@ class App extends Component {
         this.setState({ 
             user: {
                 id: user.id,
-                username: user.username
+                username: user.username,
             } 
         })
     }
@@ -235,7 +255,8 @@ class App extends Component {
             method: "POST",
                 headers: {
                     Accept: "application/json",
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${localStorage.token}`
                 },
                 body: JSON.stringify({
                     phrase: directive.command
@@ -270,6 +291,7 @@ class App extends Component {
 
     logOut = () => {
         this.setState({ user: null })
+        localStorage.removeItem('token')
     }
 
     render() {
@@ -287,7 +309,7 @@ class App extends Component {
                     setDirectives={ this.setDirectives }
                 />
                 <main>
-                    {this.state.device
+                    { this.state.device
                         ?   <>
                                 
                                 <Dictaphone 
@@ -303,12 +325,12 @@ class App extends Component {
                                     toggleUpdate={ this.toggleUpdate }
                                     saveNewDirective={ this.saveNewDirective }
                                 />
-                                <button 
-                                    className="logout" 
-                                    onClick={ this.logOut }
-                                >LOG OUT</button> 
                             </>
                     : null
+                    }
+                    { this.state.user
+                    ? <button className="logout" onClick={ this.logOut }>LOG OUT</button>
+                    : null 
                     }
                 </main>
                 <Footer />

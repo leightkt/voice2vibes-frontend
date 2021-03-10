@@ -25,6 +25,10 @@ input[type="submit"] {
     margin: 1rem 0 1rem 0;
 }
 
+input:invalid:focus {
+    background-color: #efaf27;
+}
+
 form button {
     width: 5rem;
     height: 5rem;
