@@ -1,15 +1,20 @@
 import './App.css';
-import { Component } from 'react'
+
 import Dictaphone from './Components/Dictaphone';
 import Directives from './Containers/Directives';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import About from './Components/About'
+import Logout from './Components/Logout';
+
+import { Component } from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
 const BackendURL = 'http://localhost:9000/'
 
 class App extends Component {
 
     state = {
-        user: null,
+        user: {},
         isUpdating: false,
         transcript: "",
         device: "",
@@ -289,11 +294,6 @@ class App extends Component {
         return uncensored
     }
 
-    logOut = () => {
-        this.setState({ user: null })
-        localStorage.removeItem('token')
-    }
-
     render() {
         return (
             <div className="App">
@@ -308,31 +308,35 @@ class App extends Component {
                     user={ this.state.user }
                     setDirectives={ this.setDirectives }
                 />
-                <main>
-                    { this.state.device
-                        ?   <>
-                                
-                                <Dictaphone 
-                                    commands={ this.checkStatus() }
-                                    setTranscript={ this.setTranscript }
-                                    stateTranscript={ this.state.transcript }
-                                />
-                                <Directives 
-                                    transcript={ this.state.transcript }
-                                    directives={ this.state.directives }
-                                    updateDirectives={ this.updateDirectives }
-                                    isUpdating={ this.state.isUpdating }
-                                    toggleUpdate={ this.toggleUpdate }
-                                    saveNewDirective={ this.saveNewDirective }
-                                />
-                            </>
-                    : null
-                    }
-                    { this.state.user
-                    ? <button className="logout" onClick={ this.logOut }>LOG OUT</button>
-                    : null 
-                    }
-                </main>
+                <Switch>
+                    <main>
+                        { this.state.device
+                            ?   <>
+                                    
+                                    <Dictaphone 
+                                        commands={ this.checkStatus() }
+                                        setTranscript={ this.setTranscript }
+                                        stateTranscript={ this.state.transcript }
+                                    />
+                                    <Directives 
+                                        transcript={ this.state.transcript }
+                                        directives={ this.state.directives }
+                                        updateDirectives={ this.updateDirectives }
+                                        isUpdating={ this.state.isUpdating }
+                                        toggleUpdate={ this.toggleUpdate }
+                                        saveNewDirective={ this.saveNewDirective }
+                                    />
+                                </>
+                        : null
+                        }
+                        { this.state.user
+                        ? <Logout setUser={this.setUser }/>
+                        : null 
+                        }
+                    </main>
+                <Route path="/about" render={(routerProps) => <About />} />
+                <Redirect to="/" />
+                </Switch>
                 <Footer />
             </div>
         )

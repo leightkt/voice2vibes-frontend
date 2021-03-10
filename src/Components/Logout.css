@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+
+.logout {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 3rem;
+    margin: 4rem 1rem 1rem 1rem;
+    border: none;
+    background-color: turquoise;
+    box-shadow: 1px 1px 5px turquoise;
+    color: #000808;
+    cursor: pointer;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+@media only screen and (max-width: 900px) {
+    .logout {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 5rem;
+        font-size: 2rem;
+        position: relative;
+    }
+}

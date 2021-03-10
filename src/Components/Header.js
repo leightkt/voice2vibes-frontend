@@ -31,7 +31,7 @@ function Header({
         <header className="App-header">
             <img src={Grapefruit} alt="grapefruit" />
             <h1>Voice2Vibes</h1>
-            { user
+            { user.id
             ? <>
                 <p className="username">Welcome { user.username }</p>
                 {
