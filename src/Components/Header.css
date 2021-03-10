@@ -5,6 +5,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin: 0;
 }
 
 header button {
@@ -37,3 +38,41 @@ h1 {
     margin: 1rem;
 }
 
+@media only screen and (max-width: 900px) {
+    header {
+        width: 47rem;
+        padding: 1rem;
+        margin: 2rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin: 0;
+    }
+    header img {
+        width: 10rem;
+        margin: 0 1rem;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    header p {
+        font-size: 1.5rem;
+        align-self: flex-end;
+    }
+
+    .username {
+        position: relative;
+        margin-right: 8rem;
+    }
+
+    
+
+    header button {
+        font-size: 1.75rem;
+    }
+
+}

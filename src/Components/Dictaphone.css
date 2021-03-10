@@ -17,8 +17,27 @@
     margin: 1rem;
     border: 1px solid #efaf27;
     background-color: white;
-    /* box-shadow: 1px 1px 5px turquoise; */
     color: #000808;
     cursor: pointer;
     font-family: 'Montserrat Alternates', sans-serif;
+}
+
+@media only screen and (max-width: 900px) {
+    .dictaphone {
+        flex-wrap: wrap;
+        width: 50rem;
+    }
+
+    .dictaphone p {
+        width: 42rem;
+        height: 4rem;
+        font-size: 3rem;
+    }
+
+    .dictaphone button {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 5rem;
+        font-size: 2rem;
+    }
 }

@@ -1,0 +1,7 @@
+@media only screen and (max-width: 900px) {
+    .bluetooth {
+        width: 6rem;
+        height: 6rem;
+        font-size: 1rem;
+    }
+}

@@ -17,3 +17,15 @@
 .directives-card img {
     width: 2rem;
 }
+
+@media only screen and (max-width: 900px) {
+    .directives-card {
+        width: 40rem;
+        height: 40rem;
+        font-size: 4rem;
+    }
+
+    .directives-card img {
+        width: 5rem;
+    }
+}

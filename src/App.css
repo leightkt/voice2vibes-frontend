@@ -39,3 +39,13 @@ main {
     cursor: pointer;
     font-family: 'Montserrat Alternates', sans-serif;
 }
+
+@media only screen and (max-width: 900px) {
+    .logout {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 5rem;
+        font-size: 2rem;
+        position: relative;
+    }
+}

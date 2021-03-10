@@ -15,7 +15,7 @@ footer {
 
 .honey {
     width: 10rem;
-    border-radius: 2rem;
+    border-radius: 10rem;
 }
 
 footer .about {
@@ -41,4 +41,25 @@ footer h2 {
     color: rgb(5, 44, 40);
     background-color: #efaf27;
     padding: 2rem 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+    footer {
+        min-width: 55rem;
+        height: 10rem;
+        padding-bottom: 2rem;
+    }
+
+    footer p {
+        font-size: 1.5rem;
+        margin: 1rem;
+    }
+
+    .github {
+        align-self: flex-start;
+    }
+
+    .honey {
+        align-self: flex-start;
+    }
 }

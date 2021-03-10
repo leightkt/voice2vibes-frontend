@@ -1,4 +1,4 @@
-
+import './Bluetooth.css'
 function Bluetooth({ setDevice, setCharacteristic, setServer, setService }) {
 
     const connectToDevice = async () => {
@@ -22,7 +22,7 @@ function Bluetooth({ setDevice, setCharacteristic, setServer, setService }) {
 
     return (
         <>
-        <button onClick={connectToDevice}>CONNECT</button>
+        <button className="bluetooth" onClick={connectToDevice}>CONNECT</button>
         </>
     )
 
