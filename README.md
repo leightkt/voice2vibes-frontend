@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# VOICE2VIBES Technical Documentation
+Created by: Kat Leight
 
-## Available Scripts
+VOICE2VIBES is a full stack application that allows a user to login interact via voice command with a bluetooth wearable vibrator called the Moxie by We-Vibe. 
+ 
 
-In the project directory, you can run:
+## SUMMARY
+This App is built for the Moxie by We-Vibe. The Moxie is a bluetooth connectable wearable vibrator for people with vulvas. We-Vibe makes an app for your phone that connects to the vibrator and allows a user to interact with the vibrator via touch settings. You can also connect to a partner remotely and allow them to interact with the vibrator over WiFi.  
+This app uses the Web Bluetooth API technology to connect to your vibrator from your browser and the Web Speech API to allow you to send commands via your voice. When you log in (or sign up) click the "connect" button which will open up a dialogue box. Make sure your vibrator is on (press and hold the power button for 5 seconds until it flashes and buzzes twice) and click the option that says, "Moxie."  
+When the device connects, a list of commands will open. You can call any command via voice by clicking the "start" button. Or, click a command card to set your own custom voice command for each action.  
+Click "LISTEN MODE" to enter continous listen mode. The App will pick up your commands as you speak so you and your partner can go truly hands free.
 
-### `yarn start`
+APP FEATURES
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This app allows a user to login with a username and password.  
+A new user can create an account (username must be unique and password must be between 6 and 12 characters).  
+A user can connect a Moxie vibrator via bluetooth. 
+The app shows when a device is connected/ not connected.   
+A user can view all available commands.  
+A new user is given default commands.  
+A user can send a voice command by clicking the "start" button.  
+A user can view a transcript of their voicecommand.  
+A user can clear the voice command transcript by clicking "clear".  
+A user's speech is not censored.  
+A user can enter "continous listen mode" by clicking "LISTEN MODE" where the app will continously listen to a user's speech.  
+A user can stop "continous listen mode" by clicking "STOP".    
+A user can start the vibrator by clicking "ON".  
+A user can stop the vibrator by clicking "OFF".  
+A user can set a custom voice command by clicking a command card, clicking "start", speaking a command, then clicking, "save".  
+User's account information and commands are stored in a postgresQL database, so the information is stored from session to session.   
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## API
+The backend of this app is set up as a Node.js/Express API to fetch users and commands. 
 
-### `yarn test`
+## RESPSONSIVE STYLING
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Currently, this app is responsively styled for a web browser. This app is not meant to be used on native devices because of the differences in bluetooth technology.  
 
-### `yarn build`
+## BACKGROUND INFORMATION
+MOXIE BY WE-VIBE
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This App is built for the Moxie by We-Vibe.  
+The Moxie is a bluetooth connectable wearable vibrator for people with vulvas.  
+We-Vibe makes an app for your phone that connects to the vibrator and allows a user to interact with the vibrator via touch settings.  
+You can also connect to a partner remotely and allow them to interact with the vibrator over WiFi.  
+  
+When the device connects, a list of commands will open. You can call any command via voice by clicking the "start" button. Or, click a command card to set your own custom voice command for each action.  
+Click "LISTEN MODE" to enter continous listen mode. The App will pick up your commands as you speak so you and your partner can go truly hands free.
+SET UP YOUR PARTY
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+BLUETOOTH LOW ENERGY
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Click
 
-### `yarn eject`
+WEB BLUETOOTH API  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This app uses the Web Bluetooth API technology to connect to your vibrator from your browser.  
+When you log in (or sign up) click the "connect" button which will open up a dialogue box.  
+Make sure your vibrator is on (press and hold the power button for 5 seconds until it flashes and buzzes twice) and click the option that says, "Moxie."  
+In order to use the Web Bluetooth API, you must enable experimental-web-platform-features (set to enabled) in Google Chrome by visiting chrome://flags.  
+The Web Bluetooth API allows the app to connect to a device, read/write characteristics using JavaScript asynchronous functions. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+WEB SPEECH API  
+ 
+The Web Speech API to allow you to send commands via your voice.  
+This API provides speech recognition and speech synthesis (text to speech aka tts).  
+The app reads your speech, and then writes to a bluetooth characteristic via a callback function.  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+UNCENSORING
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Some Web Browsers (including Chrome) use a server-based speech recognition engine, which means your audio is sent to a web service for recognition processing.  
+This also includes a default censor.
+Because this application is built for use with sex-technology (sex-tech), an algorithm is built in to uncensor language.  
+The goal is that users should not feel shamed for the language they choose to use with this application.  
 
-## Learn More
+BROWSER SUPPORT
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Google Chrome has the best browser support for both the Web Speech API and the Web Bluetooth API. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+INCLUSIVE TECHNOLOGY
 
-### Code Splitting
+Technology, including sex tech, should be made as inclusive as posssible.  
+This app may allow a user with limited motor fuction to better interact with their vibrator.  
+This app may also be a great edition to those in long distance relationships or unable to see each other during COVID and connecting via video chat.  
+This app uses inclusive language by refraining from using unnecessarily gendered language.  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## TECHNOLOGY
+This app was created using Node.js, Express, Knex, Objection, Bcrypt, JWT, ActiveRecord, React, React Router, Web Speech API, Web Bluetooth API, Javascript, HTML, CSS, and postgresQL. 
 
-### Analyzing the Bundle Size
+## DEPLOYMENT
+Backend repo: https://github.com/leightkt/voice2vibes-backend
+To use this app, download the backend files from the repo, cd into the backend folder, and run npm install, createdb voice2vibes_development, knex migrate:latest, knex seed:run.  
+Download the frontend, run npm install, and then npm start.  
+Enable experimental web platform features preferenes (set to enabled) by visiting chrome://flags (for Web Bluetooth API).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## DEMONSTRATION
+A demostration of the app can be viewed here:
