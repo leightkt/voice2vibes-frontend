@@ -10,7 +10,7 @@ import DeleteUser from './Components/DeleteUser'
 
 import { Component } from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
-const BackendURL = 'http://localhost:9000/'
+const BackendURL = 'https://voice2vibes.herokuapp.com/'
 
 class App extends Component {
 
@@ -354,7 +354,7 @@ class App extends Component {
                                 { this.state.user.id
                                 ?   <>
                                     <DeleteUser deleteUser={ this.deleteUser } />
-                                    <Logout setUser={ this.setUser }/>
+                                    <Logout setUser={ this.setUser } setDevice={ this.setDevice } />
                                     </>
                                 : null 
                                 }

@@ -1,6 +1,6 @@
 import './LoginForm.css'
 import { Component } from 'react'
-const BackendURL = 'http://localhost:9000/'
+const BackendURL = 'https://voice2vibes.herokuapp.com/'
 
 class LoginForm extends Component {
 
