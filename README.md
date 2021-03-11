@@ -7,10 +7,9 @@ VOICE2VIBES is a full stack application that allows a user to login interact via
  
 
 ## SUMMARY
-This App is built for the Moxie by We-Vibe. The Moxie is a bluetooth connectable wearable vibrator for people with vulvas. We-Vibe makes an app for your phone that connects to the vibrator and allows a user to interact with the vibrator via touch settings. You can also connect to a partner remotely and allow them to interact with the vibrator over WiFi.  
-This app uses the Web Bluetooth API technology to connect to your vibrator from your browser and the Web Speech API to allow you to send commands via your voice. When you log in (or sign up) click the "connect" button which will open up a dialogue box. Make sure your vibrator is on (press and hold the power button for 5 seconds until it flashes and buzzes twice) and click the option that says, "Moxie."  
-When the device connects, a list of commands will open. You can call any command via voice by clicking the "start" button. Or, click a command card to set your own custom voice command for each action.  
-Click "LISTEN MODE" to enter continous listen mode. The App will pick up your commands as you speak so you and your partner can go truly hands free.
+This App is built for the Moxie by We-Vibe. The Moxie is a bluetooth connectable wearable vibrator for people with vulvas.   
+This app uses the Web Bluetooth API technology to connect to your vibrator from your browser and the Web Speech API to allow you to send commands via your voice. 
+Click "LISTEN MODE" to enter continous listen mode. The App will pick up your commands as you speak so you and your partner can go truly hands free.  
 
 APP FEATURES
 
@@ -52,7 +51,10 @@ SET UP YOUR PARTY
 
 BLUETOOTH LOW ENERGY
 
-Click
+Bluetooth Low Energy (BLE) is moder bluetooth technology that uses lower power consumption. This allows applications to run on a small battery.  
+BLE remains in sleep mode constantly except for when a connection is initiation.  
+Connections are short and data transfer is fast.  
+Most of our modern devices use BLE.  
 
 WEB BLUETOOTH API  
 
@@ -91,8 +93,11 @@ This app was created using Node.js, Express, Knex, Objection, Bcrypt, JWT, Activ
 
 ## DEPLOYMENT
 Backend repo: https://github.com/leightkt/voice2vibes-backend
-To use this app, download the backend files from the repo, cd into the backend folder, and run npm install, createdb voice2vibes_development, knex migrate:latest, knex seed:run.  
+
+To use this app, download the backend files from the repo, cd into the backend folder, and run npm install, createdb voice2vibes_development, knex migrate:latest, knex seed:run. 
+
 Download the frontend, run npm install, and then npm start.  
+
 Enable experimental web platform features preferenes (set to enabled) by visiting chrome://flags (for Web Bluetooth API).
 
 
