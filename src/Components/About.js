@@ -9,6 +9,7 @@ const About = (props) => {
     return(
         <section className="about-section">
             <h2 className="about-title">LEVEL UP YOUR VIBRATOR</h2>
+            <p className="about-text">NOTE: To use this app, you must enable experimental web platform features preferenes (set to enabled) by visiting chrome://flags (allows Web Bluetooth API).</p>
             <div className="about-div">
                 <p className="about-text">
                 <h4>ABOUT</h4>
