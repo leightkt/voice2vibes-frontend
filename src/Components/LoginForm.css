@@ -23,6 +23,7 @@ input[type="submit"] {
     border-radius: 5rem;
     text-align: center;
     margin: 1rem 0 1rem 0;
+    cursor: pointer;
 }
 
 input:invalid:focus {

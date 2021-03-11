@@ -351,7 +351,7 @@ class App extends Component {
                                         </>
                                 : null
                                 }
-                                { this.state.user
+                                { this.state.user.id
                                 ?   <>
                                     <DeleteUser deleteUser={ this.deleteUser } />
                                     <Logout setUser={ this.setUser }/>
