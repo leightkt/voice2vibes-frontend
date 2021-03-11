@@ -16,6 +16,13 @@ function Bluetooth({ setDevice, setCharacteristic, setServer, setService }) {
         setService(service)
         const characteristic = await service.getCharacteristic('f000c000-0451-4000-b000-000000000000')
         setCharacteristic(characteristic)
+        device.addEventListener('gattserverdisconnected', onDisconnected)
+    }
+
+    const onDisconnected = (event) => {
+        alert("Vibrator Disconnected")
+        const device = ""
+        setDevice(device)
     }
 
     
