@@ -1,13 +1,20 @@
 .about-section {
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     min-height: 32rem;
 }
 
-.about-section p {
+.about-text {
     color: rgb(5, 44, 40);
+    font-size: 1.25rem;
+    min-width: 20rem;
+    max-width: 25rem;
+    padding: 0 1rem 2rem 1rem;
+    margin: 0;
+    text-align: center;
 }
 
 .about-button {
@@ -20,4 +27,26 @@
     margin: 2rem 1rem;
     cursor: pointer;
     font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.about-title {
+    color: #efaf27;
+    font-size: 2.5rem;
+}
+
+.about-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 900px) {
+    .about-title {
+        font-size: 2.5rem;
+    }
+
+    .about-div {
+        flex-direction: column;
+    }
+
 }
