@@ -100,8 +100,8 @@ class LoginForm extends Component {
                     name="password" 
                     id ="password" 
                     placeholder="PASSWORD"
-                    // minlength="6" 
-                    // maxLength="12"
+                    minlength="6" 
+                    maxLength="12"
                     value={ this.state.password }
                     onChange={ this.handleChange }/>
                 {this.state.error ? <p>{this.state.error}</p> : null}

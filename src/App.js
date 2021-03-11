@@ -6,6 +6,7 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import About from './Components/About'
 import Logout from './Components/Logout';
+import DeleteUser from './Components/DeleteUser'
 
 import { Component } from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom'
@@ -281,6 +282,23 @@ class App extends Component {
         }
     }
 
+    deleteUser = () => {
+        fetch(`${BackendURL}users/${ this.state.user.id }`, {
+            method: "DELETE",
+                headers: {
+                    "Authorization": `Bearer ${localStorage.token}`
+                }
+        })
+        .then(response => response.json())
+        .then(result => {
+            localStorage.removeItem("token")
+            this.setState({ 
+                user: {},
+                device: "" })
+        })
+
+    }
+
     uncensor = (transcript) =>  {
         let uncensored = transcript
         uncensored = uncensored.replace(/cont/g, 'cunt')
@@ -334,7 +352,10 @@ class App extends Component {
                                 : null
                                 }
                                 { this.state.user
-                                ? <Logout setUser={this.setUser }/>
+                                ?   <>
+                                    <DeleteUser deleteUser={ this.deleteUser } />
+                                    <Logout setUser={ this.setUser }/>
+                                    </>
                                 : null 
                                 }
                             </main>

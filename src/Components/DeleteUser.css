@@ -1,12 +1,11 @@
-
-.logout {
+.delete-user {
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 0;
     margin: 2rem;
     width: 4.5rem;
     height: 4.5rem;
-    border-radius: 3.4rem;
+    border-radius: 3.5rem;
     margin: 4rem 1rem 1rem 1rem;
     border: none;
     background-color: turquoise;
@@ -17,7 +16,7 @@
 }
 
 @media only screen and (max-width: 900px) {
-    .logout {
+    .delete-user {
         width: 10rem;
         height: 10rem;
         border-radius: 5rem;

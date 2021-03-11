@@ -8,7 +8,7 @@ function Footer() {
             <a 
                 target="_blank" 
                 rel="noreferrer" 
-                classname="git-link" 
+                className="git-link" 
                 href="https://github.com/leightkt">
                     <img className="github" src={Github} alt="Github icon" />
             </a>
