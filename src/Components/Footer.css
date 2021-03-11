@@ -6,11 +6,18 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .github {
     width: 4rem;
     border-radius: 4rem;
+}
+
+.git-link {
+    background-color: none;
+    border: none;
+    position: relative;
 }
 
 .honey {
@@ -62,4 +69,6 @@ footer h2 {
     .honey {
         align-self: flex-start;
     }
+
+    
 }

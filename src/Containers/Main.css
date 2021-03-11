@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+
+main {
+    min-height: 36rem;
+    position: relative;
+    padding-bottom: 4rem;
+}

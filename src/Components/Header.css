@@ -22,8 +22,8 @@ header button {
 }
 
 header img {
-    width: 15rem;
-    border-radius: 10rem;
+    width: 22rem;
+    border-radius: 22rem;
 }
 
 h1 {
@@ -36,6 +36,28 @@ h1 {
     top: 0;
     right: 0;
     margin: 1rem;
+}
+
+.about-link {
+    margin: 1rem;
+    padding-top: 2rem;
+    text-align: center;
+    width: 5rem;
+    height: 3rem;
+    border-radius: 5rem;
+    border: 1px solid #efaf27;
+    text-decoration: none;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #efaf27
+}
+
+.about-link:visited {
+    border: 1px solid #efaf27;
+    color: #efaf27;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 900px) {
@@ -74,5 +96,16 @@ h1 {
     header button {
         font-size: 1.75rem;
     }
+
+    .about-link {
+        position: relative;
+        align-self: center;
+        text-decoration: none !important;
+    }
+
+    link:visited {
+        text-decoration: none !important;
+    }
+
 
 }

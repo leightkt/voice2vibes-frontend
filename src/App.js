@@ -290,6 +290,8 @@ class App extends Component {
         uncensored = uncensored.replace(/(fuck\*\*\*)/g, 'fucking')
         uncensored = uncensored.replace(/(fuckr)/g, 'fucker')
         uncensored = uncensored.replace(/(b\*\*\*\*)/g, 'bitch')
+        uncensored = uncensored.replace(/(beaches)/g, 'bitches')
+        uncensored = uncensored.replace(/(bitch\*\*)/g, 'bitches')
         uncensored = uncensored.replace(/(a\*\*\*\*\*\*)/g, 'asshole')
         return uncensored
     }
@@ -309,33 +311,38 @@ class App extends Component {
                     setDirectives={ this.setDirectives }
                 />
                 <Switch>
-                    <main>
-                        { this.state.device
-                            ?   <>
-                                    
-                                    <Dictaphone 
-                                        commands={ this.checkStatus() }
-                                        setTranscript={ this.setTranscript }
-                                        stateTranscript={ this.state.transcript }
-                                    />
-                                    <Directives 
-                                        transcript={ this.state.transcript }
-                                        directives={ this.state.directives }
-                                        updateDirectives={ this.updateDirectives }
-                                        isUpdating={ this.state.isUpdating }
-                                        toggleUpdate={ this.toggleUpdate }
-                                        saveNewDirective={ this.saveNewDirective }
-                                    />
-                                </>
-                        : null
-                        }
-                        { this.state.user
-                        ? <Logout setUser={this.setUser }/>
-                        : null 
-                        }
-                    </main>
-                <Route path="/about" render={(routerProps) => <About />} />
-                <Redirect to="/" />
+                    <Route path="/" exact render={() => {
+                        return (
+                            <main>
+                                { this.state.device
+                                    ?   <>
+                                            
+                                            <Dictaphone 
+                                                commands={ this.checkStatus() }
+                                                setTranscript={ this.setTranscript }
+                                                stateTranscript={ this.state.transcript }
+                                            />
+                                            <Directives 
+                                                transcript={ this.state.transcript }
+                                                directives={ this.state.directives }
+                                                updateDirectives={ this.updateDirectives }
+                                                isUpdating={ this.state.isUpdating }
+                                                toggleUpdate={ this.toggleUpdate }
+                                                saveNewDirective={ this.saveNewDirective }
+                                            />
+                                        </>
+                                : null
+                                }
+                                { this.state.user
+                                ? <Logout setUser={this.setUser }/>
+                                : null 
+                                }
+                            </main>
+                        )
+                    }} />
+                    
+                    <Route path="/about" render={(routerProps) => <About { ...routerProps }/>} />
+                    <Redirect to="/" />
                 </Switch>
                 <Footer />
             </div>

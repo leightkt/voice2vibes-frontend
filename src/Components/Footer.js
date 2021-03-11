@@ -5,7 +5,13 @@ import Honey from '../Assets/honey.jpeg'
 function Footer() {
     return(
         <footer>
-            <img className="github" src={Github} alt="Github icon" />
+            <a 
+                target="_blank" 
+                rel="noreferrer" 
+                classname="git-link" 
+                href="https://github.com/leightkt">
+                    <img className="github" src={Github} alt="Github icon" />
+            </a>
             <div className="about">
                 <p className="bio">ABOUT THE DEV</p>
                 <h2>Kat</h2>

@@ -2,6 +2,7 @@ import './Header.css'
 import Bluetooth from './Bluetooth'
 import Grapefruit from '../Assets/grapefruit.jpeg'
 import LoginForm from './LoginForm'
+import { Link } from 'react-router-dom'
 
 function Header({ 
     device, 
@@ -30,6 +31,7 @@ function Header({
     return(
         <header className="App-header">
             <img src={Grapefruit} alt="grapefruit" />
+            <Link to="/about"><h2 className="about-link">ABOUT</h2></Link>
             <h1>Voice2Vibes</h1>
             { user.id
             ? <>

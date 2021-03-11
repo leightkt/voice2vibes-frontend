@@ -1,0 +1,23 @@
+.about-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 32rem;
+}
+
+.about-section p {
+    color: rgb(5, 44, 40);
+}
+
+.about-button {
+    width: 5rem;
+    height: 5rem;
+    background-color: white;
+    color: #efaf27;
+    border-radius: 5rem;
+    border: 1px solid #efaf27;
+    margin: 2rem 1rem;
+    cursor: pointer;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
