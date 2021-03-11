@@ -19,10 +19,12 @@ function Directives({ directives, transcript, updateDirectives, isUpdating, togg
     }
 
     const handleSave = () => {
-        setDirective(directive.command = transcript)
+        if (transcript !== "") {
+            setDirective(directive.command = transcript)
+            updateDirectives(directive)
+            saveNewDirective(directive)
+        }
         toggleUpdate()
-        updateDirectives(directive)
-        saveNewDirective(directive)
     }
 
     return(
