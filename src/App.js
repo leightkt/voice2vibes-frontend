@@ -332,7 +332,7 @@ class App extends Component {
                     <Route path="/" exact render={() => {
                         return (
                             <main>
-                                { this.state.device
+                                { this.state.user.id
                                     ?   <>
                                             
                                             <Dictaphone 
@@ -348,15 +348,10 @@ class App extends Component {
                                                 toggleUpdate={ this.toggleUpdate }
                                                 saveNewDirective={ this.saveNewDirective }
                                             />
+                                            <DeleteUser deleteUser={ this.deleteUser } />
+                                            <Logout setUser={ this.setUser } setDevice={ this.setDevice } />    
                                         </>
                                 : null
-                                }
-                                { this.state.user.id
-                                ?   <>
-                                    <DeleteUser deleteUser={ this.deleteUser } />
-                                    <Logout setUser={ this.setUser } setDevice={ this.setDevice } />
-                                    </>
-                                : null 
                                 }
                             </main>
                         )
