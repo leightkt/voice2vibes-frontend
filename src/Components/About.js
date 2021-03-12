@@ -32,8 +32,8 @@ const About = (props) => {
                 </p>
                 <p className="about-text">
                 <h4>TALK DIRTY</h4>
-                When the device connects, a list of commands will open. 
-                You can call any command via voice by clicking the "start" button. Or, click a command card
+                When a user logs in, a list of commands will open. 
+                When the device is connected, you can call any command via voice by clicking the "start" button. Or, click a command card
                 to set your own custom voice command for each action. 
                 </p>
             </div>
