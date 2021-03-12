@@ -314,6 +314,23 @@ class App extends Component {
         return uncensored
     }
 
+    resetCommands = () => {
+        const resetDirectives = []
+        this.state.directives.forEach(directive => {
+                const newcommand = {
+                    id: directive.id,
+                    usercommand_id: "",
+                    name: directive.name,
+                    command: directive.name,
+                    hexCode: directive.hexCode,
+                    callback: directive.callback
+                }
+                resetDirectives.push(newcommand)
+        })
+
+        this.setState({ directives: resetDirectives })
+    }
+
     render() {
         return (
             <div className="App">
@@ -349,7 +366,7 @@ class App extends Component {
                                                 saveNewDirective={ this.saveNewDirective }
                                             />
                                             <DeleteUser deleteUser={ this.deleteUser } />
-                                            <Logout setUser={ this.setUser } setDevice={ this.setDevice } />    
+                                            <Logout setUser={ this.setUser } setDevice={ this.setDevice } resetCommands={ this.resetCommands }/>    
                                         </>
                                 : null
                                 }

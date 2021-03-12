@@ -1,6 +1,6 @@
 import './Logout.css'
 
-const Logout = ({ setUser, setDevice}) => {
+const Logout = ({ setUser, setDevice, resetCommands }) => {
 
     const logOut = async() => {
         localStorage.removeItem('token')
@@ -8,6 +8,7 @@ const Logout = ({ setUser, setDevice}) => {
         setUser(user)
         const cleared = ""
         setDevice(cleared)
+        resetCommands()
     }
 
 
