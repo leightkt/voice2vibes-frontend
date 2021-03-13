@@ -1,12 +1,11 @@
 footer {
-    padding: 1rem 1rem;
+    padding: 1rem 2rem;
     background-color: turquoise;
     height: 6rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 .github {
@@ -23,6 +22,7 @@ footer {
 .honey {
     width: 10rem;
     border-radius: 10rem;
+    margin-right: 2rem;
 }
 
 footer .about {
